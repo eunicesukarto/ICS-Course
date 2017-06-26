@@ -1,26 +1,19 @@
 def shuffle_wrapper arr
-	i=0
-	temp = []
-	(arr.length).times do
-		temp.push i
-		i=i+1
-	end
-	shuffle temp, [], arr
+	shuffle [], arr
 end
 
-def shuffle unused, shuffled_arr, arr
-	n=rand(unused.length)
-	shuffled_arr.push arr[unused[n]]
-	i=n
-	while i<unused.length-1
-		unused[i]=unused[i+1]
-		i=i+1
-	end
-	unused.pop
-	if unused == []
+def shuffle shuffled_arr, arr
+	if arr == []
 		return shuffled_arr
+	else
+		n=rand(arr.length-1)
+		shuffled_arr.push arr[n]
+		temp = arr[n]
+		arr[n] = arr[arr.length-1]
+		arr[arr.length-1] = temp
+		arr.pop
+		shuffle shuffled_arr, arr
 	end
-	shuffle unused, shuffled_arr, arr
 end
 
 puts 'Input anything. To stop, press Enter on a blank line.'
