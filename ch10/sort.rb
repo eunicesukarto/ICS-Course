@@ -22,3 +22,15 @@ def sort_words unsorted, sorted
 		sort_words unsorted1, sorted
 	end
 end
+
+puts 'Type in as many words as you want (one word per line, continuing until you just press Enter on an empty line)'
+words = []
+while true
+	word = gets.chomp
+	if word == ''
+		break
+	end
+	words.push word
+end
+
+puts sort_wrapper words
