@@ -22,3 +22,15 @@ def shuffle unused, shuffled_arr, arr
 	end
 	shuffle unused, shuffled_arr, arr
 end
+
+puts 'Input anything. To stop, press Enter on a blank line.'
+words = []
+while true
+	word = gets.chomp
+	if word == ''
+		break
+	end
+	words.push word
+end
+
+puts shuffle_wrapper words
