@@ -17,7 +17,7 @@ def shuffle shuffled_arr, arr
 end
 
 Dir.chdir "d:/Stuff/Ruby/ch11"
-files = Dir["d:/Stuff/**/*.mp3"]
+files = Dir["../*.mp3"]
 files = shuffle_wrapper files
 filename = "My Playlist.m3u"
 File.open filename, 'w' do |f|
