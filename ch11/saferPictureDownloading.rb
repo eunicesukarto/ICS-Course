@@ -17,8 +17,11 @@ pic_names.each do |name|
 	if !(File.exist? new_name)
 		File.rename name, new_name
 	else 
-		puts "A file with that name exists."
-		exit
+		puts "A file with that name exists. Overwrite? (Y/N) "
+		ans = gets.chomp
+		if(ans=='Y'.upcase)
+			File.rename name, new_name
+		end
 	end
 	pic_number = pic_number + 1
 end
